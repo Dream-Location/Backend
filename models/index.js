@@ -1,9 +1,6 @@
 const Sequelize = require('sequelize')
 
-const sequelize = new Sequelize('dream-locations', 'postgres', process.env.DB_PASSWORD, {
-    host: 'localhost',
-    dialect: 'postgres'
-  });
+const sequelize = new Sequelize(process.env.DB_URI);
 
 sequelize.sync()
 
