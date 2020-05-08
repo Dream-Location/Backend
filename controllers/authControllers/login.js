@@ -12,7 +12,7 @@ module.exports = async function(req, res){
 
         if(!match || !user){
             return res.status(401).json({
-                message : "login failed"
+                message : "Invalid Credentials"
             })
         }
 
@@ -23,8 +23,8 @@ module.exports = async function(req, res){
             token: token
         })
     } catch(err){
-        res.status(401).json({
-            message : "login failed"
+        return res.status(401).json({
+            message : ("login failed", err.message)
         })
     }
 }
