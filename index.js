@@ -11,8 +11,8 @@ app.use(cors())
 app.use(helmet())
 app.use(express.json())
 
-app.use('/auth', authRouter)
-app.use('/location', locationRouter)
+app.use('/api/auth', authRouter)
+app.use('/api/location', locationRouter)
 
 app.get('/', (req, res) => {
     res.send("Welcome to Dream locations Api")
