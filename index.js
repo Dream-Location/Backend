@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
     res.send("Welcome to Dream locations Api")
 })
 
-app.listen(port, ()=>{
+app.all('*', (req, res) => {
+    res.status(404).json({ message: 'This URL can not be found' })
+})
+
+app.listen(port, () => {
     console.log(`listening on http://localhost:${port}`)
 })
