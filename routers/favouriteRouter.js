@@ -6,7 +6,9 @@ const addFavourite = require('../controllers/favourite/addFavourite')
 const getFavourites = require('../controllers/favourite/getFavourites')
 const removeFavourite = require('../controllers/favourite/removeFavourite')
 
-router.post("/", authenticate, addFavourite)
+const { addFavouriteValidation } = require('../middleware/validation')
+
+router.post("/", authenticate, addFavouriteValidation, addFavourite)
 router.get("/", authenticate, getFavourites)
 router.delete("/:id", authenticate, removeFavourite)
 
