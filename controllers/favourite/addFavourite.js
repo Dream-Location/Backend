@@ -12,7 +12,8 @@ module.exports = async function (req, res) {
             })
         }
         return res.status(201).json({
-            message: response
+            message: "Successfully created",
+            favourites: response
         })
     } catch(err){
         return res.status(500).json({
