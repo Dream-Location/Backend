@@ -17,7 +17,7 @@ module.exports = async function(req, res){
         
         user = await User.create({ username, password: encryptedPassword })
 
-        const token = await generateToken(username)
+        const token = await generateToken(user)
 
         return res.status(201).json({
             message : `welcome ${user.username}`,

@@ -16,7 +16,7 @@ module.exports = async function(req, res){
             })
         }
 
-        const token = await generateToken(user.username)
+        const token = await generateToken(user)
 
         res.status(201).json({
             message : `welcome ${user.username}`,
