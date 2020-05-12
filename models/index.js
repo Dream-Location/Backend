@@ -1,16 +1,7 @@
-const Sequelize = require('sequelize')
+const User = require('../models/user')
+const Location = require('../models/location')
 
-const sequelize = new Sequelize(process.env.DATABASE_URL);
+Location.belongsToMany(User, {through: 'favourites'});
+User.belongsToMany(Location, {through: 'favourites'});
 
-sequelize.sync()
-
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
-
-module.exports = sequelize
+module.exports = { User, Location }

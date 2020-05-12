@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const generateToken = require('../../helpers/generateToken')
-const User = require('../../models/user')
+const { User } = require('../../models')
 
 module.exports = async function(req, res){
     const {username, password} = req.body
