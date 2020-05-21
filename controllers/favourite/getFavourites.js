@@ -9,7 +9,7 @@ module.exports = async function (req, res) {
         let response = await user.getLocations()
 
         return res.status(200).json({
-            favourites: response
+            locations: response
         })
     } catch(err){
         return res.status(500).json({
